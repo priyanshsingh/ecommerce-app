@@ -6,17 +6,17 @@ const Cart = () => {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const navigate = useNavigate();
-  const cartId = 'your-cart-id'; // Replace with the actual cart ID mechanism
+  const cartId = localStorage.getItem('cartId'); // Get the cart ID from local storage
 
   useEffect(() => {
     const fetchCart = async () => {
       const response = await axios.get(`http://localhost:5000/cart?cartId=${cartId}`);
       if (response.data.length > 0) {
-        setCart(response.data[0].products);
+        setCart(response.data[0].products); // Update to get products array
       }
     };
     fetchCart();
-  }, []);
+  }, [cartId]);
 
   useEffect(() => {
     const calculateTotal = () => {

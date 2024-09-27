@@ -5,41 +5,38 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  const [cartId, setCartId] = useState(uuidv4()); // Generate a unique cart ID for the user
+  const [cartId, setCartId] = useState(localStorage.getItem('cartId') || uuidv4()); // Retrieve from local storage or create a new one
 
   useEffect(() => {
+    localStorage.setItem('cartId', cartId); // Store cartId in local storage
     const fetchProducts = async () => {
       const response = await axios.get('http://localhost:5000/products');
       setProducts(response.data);
     };
     fetchProducts();
-  }, []);
+  }, [cartId]);
 
   const handleAddToCart = async (product) => {
     const cartItem = {
       id: product.id,
       name: product.name,
-      price: product.price,
-      cartId: cartId // Include the cart ID
+      price: product.price
     };
 
-    // Check if the user's cart already exists
     const existingCart = await axios.get(`http://localhost:5000/cart?cartId=${cartId}`);
     
     if (existingCart.data.length > 0) {
-      // If the cart exists, update it
       await axios.put(`http://localhost:5000/cart/${existingCart.data[0].id}`, {
         ...existingCart.data[0],
         products: [...existingCart.data[0].products, cartItem]
       });
     } else {
-      // If the cart doesn't exist, create a new one
       await axios.post('http://localhost:5000/cart', {
         cartId: cartId,
         products: [cartItem]
       });
     }
-    
+
     alert(`${product.name} has been added to your cart!`);
   };
 

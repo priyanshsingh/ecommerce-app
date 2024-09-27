@@ -15,6 +15,70 @@
       "category": "Facewash",
       "description": "Description 2",
       "image": "https://m.media-amazon.com/images/I/41qlpafXP1L._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "name": "conditioner",
+      "price": "500",
+      "category": "",
+      "description": "",
+      "image": "",
+      "id": 3
+    },
+    {
+      "name": "",
+      "price": "",
+      "category": "",
+      "description": "",
+      "image": "",
+      "id": 4
+    },
+    {
+      "name": "",
+      "price": "",
+      "category": "",
+      "description": "",
+      "image": "",
+      "id": 5
+    },
+    {
+      "name": "",
+      "price": "",
+      "category": "",
+      "description": "",
+      "image": "",
+      "id": 6
+    },
+    {
+      "name": "",
+      "price": "",
+      "category": "",
+      "description": "",
+      "image": "",
+      "id": 7
+    },
+    {
+      "name": "",
+      "price": "",
+      "category": "",
+      "description": "",
+      "image": "",
+      "id": 8
+    },
+    {
+      "name": "",
+      "price": "",
+      "category": "",
+      "description": "",
+      "image": "",
+      "id": 9
+    },
+    {
+      "name": "",
+      "price": "",
+      "category": "",
+      "description": "",
+      "image": "",
+      "id": 10
     }
   ],
   "users": [
@@ -83,6 +147,22 @@
         }
       ],
       "id": 4
+    },
+    {
+      "cartId": "3bdcb34f-85fc-4ed6-837a-5e5d383d9a85",
+      "products": [
+        {
+          "id": 1,
+          "name": "Shampoo",
+          "price": 100
+        },
+        {
+          "id": 2,
+          "name": "Facewash",
+          "price": 200
+        }
+      ],
+      "id": 5
     }
   ]
 }
