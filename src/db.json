@@ -1,0 +1,88 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Shampoo",
+      "price": 100,
+      "category": "Shampoo",
+      "description": "Description 1",
+      "image": "https://images.bblunt.com/catalog/product/c/u/curly-hair-shampoo.jpg?format=auto&height=600"
+    },
+    {
+      "id": 2,
+      "name": "Facewash",
+      "price": 200,
+      "category": "Facewash",
+      "description": "Description 2",
+      "image": "https://m.media-amazon.com/images/I/41qlpafXP1L._AC_UF1000,1000_QL80_.jpg"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin123"
+    },
+    {
+      "id": 2,
+      "username": "user",
+      "password": "user123"
+    }
+  ],
+  "cart": [
+    {
+      "cartId": "e1a93809-44f6-4c51-9d1c-7ec7185fc612",
+      "products": [
+        {
+          "id": 1,
+          "name": "Shampoo",
+          "price": 100,
+          "cartId": "e1a93809-44f6-4c51-9d1c-7ec7185fc612"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "cartId": "eaccebfa-d537-4ccb-ae15-3d6ce5056de4",
+      "products": [
+        {
+          "id": 2,
+          "name": "Facewash",
+          "price": 200,
+          "cartId": "eaccebfa-d537-4ccb-ae15-3d6ce5056de4"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "cartId": "cb592be4-2abb-4253-a2d6-84930ee2be5a",
+      "products": [
+        {
+          "id": 1,
+          "name": "Shampoo",
+          "price": 100,
+          "cartId": "cb592be4-2abb-4253-a2d6-84930ee2be5a"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "cartId": "146074c3-095f-4a7a-a05a-93b9a02ea9bd",
+      "products": [
+        {
+          "id": 2,
+          "name": "Facewash",
+          "price": 200,
+          "cartId": "146074c3-095f-4a7a-a05a-93b9a02ea9bd"
+        },
+        {
+          "id": 1,
+          "name": "Shampoo",
+          "price": 100,
+          "cartId": "146074c3-095f-4a7a-a05a-93b9a02ea9bd"
+        }
+      ],
+      "id": 4
+    }
+  ]
+}
