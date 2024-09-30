@@ -10,11 +10,11 @@
     },
     {
       "id": 2,
-      "name": "Cond",
+      "name": "Conditioner",
       "price": 100,
       "category": "Cond",
-      "description": "Description 1",
-      "image": "https://images.bblunt.com/catalog/product/c/u/curly-hair-shampoo.jpg?format=auto&height=600"
+      "description": "Conditioner",
+      "image": "https://m.media-amazon.com/images/I/41fzL9D5suL.jpg"
     },
     {
       "id": 3,
@@ -37,27 +37,5 @@
       "password": "user123"
     }
   ],
-  "cart": [
-    {
-      "cartId": "3bdcb34f-85fc-4ed6-837a-5e5d383d9a85",
-      "products": [
-        {
-          "id": 1,
-          "name": "Shampoo",
-          "price": 100
-        },
-        {
-          "id": 2,
-          "name": "Cond",
-          "price": 100
-        },
-        {
-          "id": 3,
-          "name": "Face",
-          "price": 100
-        }
-      ],
-      "id": 1
-    }
-  ]
+  "cart": []
 }
