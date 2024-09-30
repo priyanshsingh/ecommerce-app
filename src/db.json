@@ -2,27 +2,59 @@
   "products": [
     {
       "id": 1,
-      "name": "Shampoo",
-      "price": 100,
+      "name": "BBlunt Shampoo",
+      "price": 399,
       "category": "Shampoo",
-      "description": "Description 1",
+      "description": "Shampoo",
       "image": "https://images.bblunt.com/catalog/product/c/u/curly-hair-shampoo.jpg?format=auto&height=600"
     },
     {
       "id": 2,
-      "name": "Conditioner",
-      "price": 100,
-      "category": "Cond",
+      "name": "MamaEarth Conditioner",
+      "price": 599,
+      "category": "Conditioner",
       "description": "Conditioner",
-      "image": "https://m.media-amazon.com/images/I/41fzL9D5suL.jpg"
+      "image": "https://images.mamaearth.in/catalog/product/e/g/eggplex-conditioner.jpg?format=auto&height=600"
     },
     {
       "id": 3,
-      "name": "Face",
-      "price": 100,
-      "category": "Face",
-      "description": "Description 1",
-      "image": "https://images.bblunt.com/catalog/product/c/u/curly-hair-shampoo.jpg?format=auto&height=600"
+      "name": "MamaEarth Facewash",
+      "price": 299,
+      "category": "Facewash",
+      "description": "Facewash",
+      "image": "https://m.media-amazon.com/images/I/61EhOk8Z2bL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "id": 4,
+      "name": "MamaEarth Vitamin C Combo",
+      "price": 699,
+      "category": "Combo",
+      "description": "Combo",
+      "image": "https://images.mamaearth.in/catalog/product/v/i/vitamin-c-day-regime_oczd3osurv4zkp0f.jpg?format=auto&height=600"
+    },
+    {
+      "id": 5,
+      "name": "MamaEarth Baby Lotion",
+      "price": 399,
+      "category": "Lotion",
+      "description": "Lotion",
+      "image": "https://pixies.in/media/catalog/product/cache/e9780188a08ae15edb442fcb34502371/m/a/mamaearth_vitamin_c_body_lotion_7.jpg"
+    },
+    {
+      "id": 6,
+      "name": "MamaEarth Rosemary Combo",
+      "price": 899,
+      "category": "Combo",
+      "description": "Rosemary Combo",
+      "image": "https://trykiya.com/cdn/shop/files/WhatsAppImage2024-03-11at11.14.07AM.jpg?v=1710137867"
+    },
+    {
+      "name": "Mamaearth Lipstick",
+      "price": "799",
+      "category": "Lips",
+      "description": "Lipstick",
+      "image": "https://images.mamaearth.in/catalog/product/m/u/mulberry_pink_with_swatch_copy.png?format=auto&height=600",
+      "id": 7
     }
   ],
   "users": [

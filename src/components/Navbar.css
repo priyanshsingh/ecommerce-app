@@ -10,6 +10,7 @@
   .navbar-title {
     font-size: 2rem; /* Increase font size */
     font-weight: bold;
+    text-decoration: none;
   }
   
   .navbar-links {

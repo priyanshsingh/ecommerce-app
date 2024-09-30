@@ -6,9 +6,9 @@ import './Navbar.css'; // Import the CSS file
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <h1 className="navbar-title">My Store</h1>
+      <Link to="/" className='navbar-title'>Product Store</Link>
       <div className="navbar-links">
-        <Link to="/">
+        <Link to="/products">
           <FaBoxOpen /> Products
         </Link>
         <Link to="/login">

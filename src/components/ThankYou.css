@@ -1,0 +1,26 @@
+.thank-you-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    text-align: center; /* Center text */
+    background-color: #f9f9f9; /* Light background color */
+  }
+  
+  .thank-you-image {
+    width: 150px; /* Adjust size as needed */
+    margin-bottom: 20px; /* Space below the image */
+  }
+  
+  .thank-you-title {
+    font-size: 2rem; /* Larger title font */
+    color: #333; /* Darker text color */
+    margin: 10px 0; /* Space above and below title */
+  }
+  
+  .thank-you-message {
+    font-size: 1.2rem; /* Message font size */
+    color: #666; /* Lighter text color */
+  }
+  

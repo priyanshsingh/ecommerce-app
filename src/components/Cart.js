@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Navbar from './Navbar';
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
@@ -56,15 +57,15 @@ const Cart = () => {
   const cartItemStyle = {
     border: '1px solid #ccc',
     borderRadius: '5px',
-    width: '100%', 
+    width: '100%',
     maxWidth: '500px',
     margin: '10px auto',
-    padding: '20px', 
+    padding: '20px',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#fff',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', 
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
   };
 
   const totalPriceStyle = {
@@ -83,7 +84,7 @@ const Cart = () => {
     borderRadius: '5px',
     cursor: 'pointer',
     transition: 'background-color 0.3s',
-    fontSize: '1.2em', 
+    fontSize: '1.2em',
   };
 
   const emptyCartStyle = {
@@ -93,34 +94,37 @@ const Cart = () => {
   };
 
   return (
-    <div style={containerStyle}>
-      <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Your Cart</h1>
-      {cart.length > 0 ? (
-        <>
-          <div>
-            {cart.map((item) => (
-              <div key={item.id} style={cartItemStyle}>
-                <div style={{ flexGrow: 1, marginRight: '20px' }}>
-                  <h2 style={{ fontSize: '1.5em' }}>{item.name} <span style={{ fontWeight: 'bold' }}>(x{item.quantity})</span></h2>
-                  <p style={{ fontSize: '1.2em' }}>Price: ${(item.price * item.quantity).toFixed(2)}</p>
+    <>
+      <Navbar/>
+      <div style={containerStyle}>
+        <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Your Cart</h1>
+        {cart.length > 0 ? (
+          <>
+            <div>
+              {cart.map((item) => (
+                <div key={item.id} style={cartItemStyle}>
+                  <div style={{ flexGrow: 1, marginRight: '20px' }}>
+                    <h2 style={{ fontSize: '1.5em' }}>{item.name} <span style={{ fontWeight: 'bold' }}>(x{item.quantity})</span></h2>
+                    <p style={{ fontSize: '1.2em' }}>Price: ${(item.price * item.quantity).toFixed(2)}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-          <h2 style={totalPriceStyle}>Total: ${total.toFixed(2)}</h2>
-          <button
-            onClick={handleCheckout}
-            style={checkoutButtonStyle}
-            onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#0056b3'}
-            onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#007bff'}
-          >
-            Checkout
-          </button>
-        </>
-      ) : (
-        <h2 style={emptyCartStyle}>Your cart is empty.</h2>
-      )}
-    </div>
+              ))}
+            </div>
+            <h2 style={totalPriceStyle}>Total: ${total.toFixed(2)}</h2>
+            <button
+              onClick={handleCheckout}
+              style={checkoutButtonStyle}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#0056b3'}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#007bff'}
+            >
+              Checkout
+            </button>
+          </>
+        ) : (
+          <h2 style={emptyCartStyle}>Your cart is empty.</h2>
+        )}
+      </div>
+    </>
   );
 };
 
