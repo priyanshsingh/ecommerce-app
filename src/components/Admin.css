@@ -1,0 +1,72 @@
+/* Admin.css */
+.admin-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .add-product-form {
+    margin-bottom: 20px;
+  }
+  
+  .add-product-form input {
+    display: block;
+    margin: 10px 0;
+    padding: 8px;
+    width: 300px;
+  }
+  
+  .add-product-form button {
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .add-product-form button:hover {
+    background-color: #2980b9;
+  }
+  
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .product-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    position: relative; 
+  }
+  
+  .product-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .icon-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .icon {
+    width: 20px; 
+    height: 20px; 
+    cursor: pointer;
+    transition: opacity 0.3s; 
+  }
+  
+  .icon:hover {
+    opacity: 0.7; 
+  }
+  
+  
+  .icon-buttons {
+    margin-top: 10px;
+    gap: 5px; 
+  }
+  

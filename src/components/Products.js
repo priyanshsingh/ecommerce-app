@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import './products.css'; // Import the specific CSS file
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  const [cartId, setCartId] = useState(localStorage.getItem('cartId') || uuidv4()); // Retrieve from local storage or create a new one
+  const [cartId, setCartId] = useState(localStorage.getItem('cartId') || uuidv4());
 
   useEffect(() => {
-    localStorage.setItem('cartId', cartId); // Store cartId in local storage
+    localStorage.setItem('cartId', cartId);
     const fetchProducts = async () => {
       const response = await axios.get('http://localhost:5000/products');
       setProducts(response.data);
@@ -41,16 +42,16 @@ const Products = () => {
   };
 
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
+    <div className="container">
       {products.map(product => (
-        <div key={product.id} style={{ border: '1px solid #ccc', borderRadius: '5px', width: '200px', margin: '10px', padding: '10px' }}>
+        <div key={product.id} className="product-card">
           <Link to={`/products/${product.id}`} style={{ textDecoration: 'none', color: 'black' }}>
-            <img src={product.image} alt={product.name} style={{ width: '100%', height: '150px', objectFit: 'cover' }} />
-            <h2>{product.name}</h2>
-            <p>{product.description}</p>
-            <p>Price: ${product.price}</p>
+            <img src={product.image} alt={product.name} />
+            <h2 className="product-title">{product.name}</h2>
+            <p className="product-description">{product.description}</p>
+            <p className="product-price">Price: ${product.price}</p>
           </Link>
-          <button onClick={() => handleAddToCart(product)} style={{ backgroundColor: '#28a745', color: 'white', border: 'none', padding: '10px', cursor: 'pointer' }}>
+          <button className="add-to-cart-button" onClick={() => handleAddToCart(product)}>
             Add to Cart
           </button>
         </div>

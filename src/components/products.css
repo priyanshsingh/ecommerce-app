@@ -1,0 +1,77 @@
+/* products.css */
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1200px; 
+  padding: 20px; 
+}
+
+.product-card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0; 
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  margin: 15px; /* Space between cards */
+  padding: 20px; /* Internal padding for the card */
+  text-align: center; /* Center text inside the card */
+  width: calc(33.333% - 30px); /* Three cards per row, considering margins */
+  transition: transform 0.2s; /* Smooth hover effect */
+}
+
+.product-card:hover {
+  transform: scale(1.02); /* Slight zoom on hover */
+}
+
+.product-card img {
+  max-width: 100%; /* Ensure images are responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px; /* Slight rounding for images */
+}
+
+.product-title {
+  font-size: 1.5em; /* Title font size */
+  margin: 10px 0; /* Space around the title */
+}
+
+.product-description {
+  font-size: 1em; /* Description font size */
+  color: #666; /* Gray color for description */
+  margin: 10px 0; /* Space around the description */
+}
+
+.product-price {
+  font-size: 1.2em; /* Price font size */
+  color: #333; /* Darker color for price */
+  margin: 10px 0; /* Space around the price */
+}
+
+.add-to-cart-button {
+  background-color: #28a745; /* Green background for button */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners for button */
+  color: white; /* White text color */
+  cursor: pointer; /* Pointer on hover */
+  font-size: 1em; /* Button font size */
+  padding: 10px 15px; /* Padding inside the button */
+  transition: background-color 0.3s; /* Smooth color change on hover */
+}
+
+.add-to-cart-button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .product-card {
+    width: calc(50% - 30px); /* Two cards per row on medium screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    width: 100%; /* One card per row on small screens */
+  }
+}

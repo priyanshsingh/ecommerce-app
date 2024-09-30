@@ -6,51 +6,119 @@ const Cart = () => {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
   const navigate = useNavigate();
-  const cartId = localStorage.getItem('cartId'); // Get the cart ID from local storage
+  const cartId = localStorage.getItem('cartId');
 
   useEffect(() => {
     const fetchCart = async () => {
       const response = await axios.get(`http://localhost:5000/cart?cartId=${cartId}`);
       if (response.data.length > 0) {
-        setCart(response.data[0].products); // Update to get products array
+        const products = response.data[0].products;
+        const aggregatedCart = aggregateCartItems(products);
+        setCart(aggregatedCart);
       }
     };
     fetchCart();
   }, [cartId]);
 
+  const aggregateCartItems = (products) => {
+    const aggregated = {};
+    products.forEach(product => {
+      if (aggregated[product.id]) {
+        aggregated[product.id].quantity += 1;
+      } else {
+        aggregated[product.id] = { ...product, quantity: 1 };
+      }
+    });
+    return Object.values(aggregated);
+  };
+
   useEffect(() => {
     const calculateTotal = () => {
-      const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
+      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
       setTotal(totalPrice);
     };
     calculateTotal();
   }, [cart]);
 
   const handleCheckout = () => {
-    // Logic for checkout can be added here
-    navigate('/thankyou'); // Navigate to Thank You page
+    navigate('/thankyou');
+  };
+
+  const containerStyle = {
+    maxWidth: '800px',
+    margin: '20px auto',
+    padding: '20px',
+    border: '1px solid #ddd',
+    borderRadius: '8px',
+    backgroundColor: '#f9f9f9',
+  };
+
+  const cartItemStyle = {
+    border: '1px solid #ccc',
+    borderRadius: '5px',
+    width: '100%', 
+    maxWidth: '500px',
+    margin: '10px auto',
+    padding: '20px', 
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', 
+  };
+
+  const totalPriceStyle = {
+    textAlign: 'center',
+    fontSize: '1.5em',
+    margin: '20px 0',
+  };
+
+  const checkoutButtonStyle = {
+    display: 'block',
+    width: '100%',
+    padding: '15px',
+    backgroundColor: '#007bff',
+    color: 'white',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s',
+    fontSize: '1.2em', 
+  };
+
+  const emptyCartStyle = {
+    textAlign: 'center',
+    fontSize: '1.2em',
+    color: '#666',
   };
 
   return (
-    <div>
-      <h1>Your Cart</h1>
+    <div style={containerStyle}>
+      <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Your Cart</h1>
       {cart.length > 0 ? (
         <>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            {cart.map((item, index) => (
-              <div key={index} style={{ border: '1px solid #ccc', borderRadius: '5px', width: '300px', margin: '10px', padding: '10px' }}>
-                <h2>{item.name}</h2>
-                <p>Price: ${item.price}</p>
+          <div>
+            {cart.map((item) => (
+              <div key={item.id} style={cartItemStyle}>
+                <div style={{ flexGrow: 1, marginRight: '20px' }}>
+                  <h2 style={{ fontSize: '1.5em' }}>{item.name} <span style={{ fontWeight: 'bold' }}>(x{item.quantity})</span></h2>
+                  <p style={{ fontSize: '1.2em' }}>Price: ${(item.price * item.quantity).toFixed(2)}</p>
+                </div>
               </div>
             ))}
           </div>
-          <h2>Total: ${total}</h2>
-          <button onClick={handleCheckout} style={{ backgroundColor: '#007bff', color: 'white', border: 'none', padding: '10px', cursor: 'pointer' }}>
+          <h2 style={totalPriceStyle}>Total: ${total.toFixed(2)}</h2>
+          <button
+            onClick={handleCheckout}
+            style={checkoutButtonStyle}
+            onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#0056b3'}
+            onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#007bff'}
+          >
             Checkout
           </button>
         </>
       ) : (
-        <h2>Your cart is empty.</h2>
+        <h2 style={emptyCartStyle}>Your cart is empty.</h2>
       )}
     </div>
   );
